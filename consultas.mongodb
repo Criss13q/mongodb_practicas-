@@ -1,0 +1,24 @@
+use("UrbanStyle_store")
+
+/*De la siguiente factura muestre el producto cuyo precio sea 
+mayor o igual a 25 o cuyo importe sea mayor a 100 y ordene de manera ascendente 
+al precio 
+*/
+
+db.factura.find(
+    {
+        $or: [{precioUnitario:{$gte: 25},
+                importe: {$gt: 100}
+        }]
+    },
+    {
+        fecha: 1,
+        cantidad: 1,
+        descripcion: 1,
+        precioUnitario: 1,
+        importe: 1
+    }
+).sort({precio: 1})
+  
+
+//CRISTIAN QUISPE JANAMPA
